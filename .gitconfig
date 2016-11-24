@@ -1,0 +1,7 @@
+[user]
+	name = Wei-Meng Lee
+	email = weimeng@staticfusion.org
+[push]
+	default = simple
+[core]
+	editor = vim
