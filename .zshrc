@@ -85,9 +85,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-alias atom="powershell.exe atom.cmd"
 alias be="bundle exec"
 alias berc="bundle exec rails console"
 alias bers="bundle exec rails server -b 0.0.0.0"
 alias pgr="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d"
+
+# Bash on Ubuntu on Windows aliases
+alias atom="powershell.exe atom.cmd"
+alias cdwin~="/mnt/c/Users/$(powershell.exe 'Write-Host $env:UserName')"
+
