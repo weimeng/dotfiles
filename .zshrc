@@ -98,10 +98,6 @@ else
   start_agent
 fi
 
-# Set Docker CLI to connect to Docker Engine on Windows
-# Source: https://blog.jayway.com/2017/04/19/running-docker-on-bash-on-windows/
-export DOCKER_HOST='tcp://0.0.0.0:2375'
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
