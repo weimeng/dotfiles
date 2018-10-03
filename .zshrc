@@ -93,3 +93,13 @@ alias pgr="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Use Homebrew-provided binaries instead of system
+export PATH="/usr/local/bin:$PATH"
+
+# Android SDK
+export ANDROID_HOME="/Users/$USER/Library/Android/sdk"
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+# Flutter SDK
+export PATH=~/dev/flutter/bin:$PATH
