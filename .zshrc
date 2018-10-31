@@ -93,6 +93,23 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# rails
+function berc () {
+  if [ -f ./bin/rails ]; then
+    bin/rails console
+  else
+    bundle exec rails console
+  fi
+}
+
+function bers () {
+  if [ -f ./bin/rails ]; then
+    bin/rails server -b 0.0.0.0
+  else
+    bundle exec rails server -b 0.0.0.0
+  fi
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -104,6 +121,4 @@ eval "$(rbenv init -)"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias be="bundle exec"
-alias berc="bundle exec rails console"
-alias bers="bundle exec rails server -b 0.0.0.0"
 alias pgr="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d"
