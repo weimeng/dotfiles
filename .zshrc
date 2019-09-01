@@ -8,7 +8,9 @@ export ZSH="/home/weimeng/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="weimeng"
+ZSH_THEME="spaceship"
+
+SPACESHIP_TIME_SHOW=true
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -88,6 +90,9 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# go
+export PATH=$PATH:/usr/local/go/bin
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
