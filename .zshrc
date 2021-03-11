@@ -11,6 +11,7 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="spaceship"
 
 SPACESHIP_TIME_SHOW=true
+SPACESHIP_DOCKER_SHOW=false
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -66,6 +67,7 @@ SPACESHIP_TIME_SHOW=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  pyenv
   rbenv
 )
 
@@ -91,12 +93,32 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# go
-export PATH=$PATH:/usr/local/go/bin
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH="/Users/weimeng/go/bin:$PATH"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+  # Workaround for duplicate command on tab completion
+  # https://github.com/sindresorhus/pure/issues/300
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+
+  # For brew installed coreutils
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+  # For brew installed google-cloud-sdk
+  export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
+
+  GCLOUD_SDK_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  if [ -f "$GCLOUD_SDK_PATH" ]; then . "$GCLOUD_SDK_PATH"; fi
+
+  GCLOUD_COMPLETION_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+  if [ -f "$GCLOUD_COMPLETION_PATH" ]; then . "$GCLOUD_COMPLETION_PATH"; fi
+
+  # For GitLab Development Kit
+  # export PATH="/usr/local/opt/postgresql/bin:$PATH"
+  export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
 
 # rails
 function berc () {
