@@ -93,8 +93,11 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+# if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ $(grep microsoft /proc/version) ]]; then
   export PATH=$PATH:/usr/local/go/bin
+
+  export VAGRANT_DEFAULT_PROVIDER=hyperv
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/Users/weimeng/go/bin:$PATH"
 
