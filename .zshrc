@@ -95,9 +95,15 @@ source $ZSH/oh-my-zsh.sh
 
 # if [[ "$OSTYPE" == "linux-gnu" ]]; then
 if [[ $(grep microsoft /proc/version) ]]; then
+  MINIO_DATA_DIR="/mnt/c/Users/weimeng/Dev/minio"
+
+  # Include Python user binaries
+  export PATH=$PATH:~/.local/bin
+
   export PATH=$PATH:/usr/local/go/bin
 
   export VAGRANT_DEFAULT_PROVIDER=hyperv
+  export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/Users/weimeng/go/bin:$PATH"
 
@@ -152,3 +158,4 @@ function bers () {
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias be="bundle exec"
 alias pgr="pg_restore --verbose --clean --no-acl --no-owner -h localhost -d"
+alias start-minio="MINIO_ROOT_USER=admin MINIO_ROOT_PASSWORD=password minio server $MINIO_DATA_DIR --console-address ':9001'"
