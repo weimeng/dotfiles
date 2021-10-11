@@ -97,6 +97,10 @@ source $ZSH/oh-my-zsh.sh
 if [[ $(grep microsoft /proc/version) ]]; then
   MINIO_DATA_DIR="/mnt/c/Users/weimeng/Dev/minio"
 
+  # Include nodenv path and shim
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+
   # Include Python user binaries
   export PATH=$PATH:~/.local/bin
 
