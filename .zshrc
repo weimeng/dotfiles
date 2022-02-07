@@ -95,6 +95,14 @@ source $ZSH/oh-my-zsh.sh
 
 # if [[ "$OSTYPE" == "linux-gnu" ]]; then
 if [[ $(grep microsoft /proc/version) ]]; then
+  # Workaround to open CWD in new tabs for Windows Terminal
+  # Source: https://github.com/microsoft/terminal/issues/3158#issuecomment-986826132
+  [[ -n "$WT_SESSION" ]] && {
+    precmd() {
+      printf "\e]9;9;%s\e\\" "$PWD"
+    }
+  }
+
   MINIO_DATA_DIR="/mnt/c/Users/weimeng/Dev/minio"
 
   # Include nodenv path and shim
