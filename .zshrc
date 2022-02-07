@@ -103,7 +103,7 @@ if [[ $(grep microsoft /proc/version) ]]; then
     }
   }
 
-  MINIO_DATA_DIR="/mnt/c/Users/weimeng/Dev/minio"
+  MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
 
   # Include nodenv path and shim
   export PATH="$HOME/.nodenv/bin:$PATH"
