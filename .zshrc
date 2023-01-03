@@ -71,6 +71,10 @@ plugins=(
   rbenv
 )
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  plugins+=(brew)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
