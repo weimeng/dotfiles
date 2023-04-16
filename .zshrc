@@ -112,6 +112,14 @@ if [[ $(grep microsoft /proc/version) ]]; then
     }
   }
 
+  # Set up X11 forwarding for WSL2
+  # https://stackoverflow.com/a/61110604
+  export DISPLAY=$(ip route list default | awk '{print $3}'):3
+
+  # Workaround X11-unix socket mounted as read-only
+  # Source: https://github.com/microsoft/WSL/issues/9303#issuecomment-1345615675
+  sudo mount -o remount,rw /tmp/.X11-unix
+
   MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
 
   # Include nodenv path and shim
