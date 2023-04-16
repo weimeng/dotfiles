@@ -13,6 +13,11 @@ ZSH_THEME="spaceship"
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_DOCKER_SHOW=false
 
+if [[ $(grep microsoft /proc/version) ]]; then
+  # http://blog.miguelalexcantu.com/2020/12/fixing-upower-warning-wslzshspaceship.html
+  SPACESHIP_BATTERY_SHOW=false
+fi
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
