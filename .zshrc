@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # if [[ "$OSTYPE" == "linux-gnu" ]]; then
-if [[ $(grep -s microsoft /proc/version) ]]; then
+if [[ $(grep microsoft /proc/version) ]]; then
   # Workaround to open CWD in new tabs for Windows Terminal
   # Source: https://github.com/microsoft/terminal/issues/3158#issuecomment-986826132
   [[ -n "$WT_SESSION" ]] && {
