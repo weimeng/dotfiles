@@ -78,6 +78,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 plugins+=(
+  nodenv
   pyenv
   rbenv
 )
@@ -123,10 +124,6 @@ if [[ $(grep -s microsoft /proc/version) ]]; then
   sudo mount -o remount,rw /tmp/.X11-unix
 
   MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
-
-  # Include nodenv path and shim
-  export PATH="$HOME/.nodenv/bin:$PATH"
-  eval "$(nodenv init -)"
 
   # Include Python user binaries
   export PATH=$PATH:~/.local/bin
