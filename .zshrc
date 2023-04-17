@@ -58,10 +58,12 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# if [[ "$OSTYPE" == "linux-gnu" ]]; then
+# OS-specific configuration
+
+# Windows Subsystem for Linux
 if [[ $(grep -s microsoft /proc/version) ]]; then
   # Workaround to open CWD in new tabs for Windows Terminal
-  # Source: https://github.com/microsoft/terminal/issues/3158#issuecomment-986826132
+  # https://github.com/microsoft/terminal/issues/3158#issuecomment-986826132
   [[ -n "$WT_SESSION" ]] && {
     precmd() {
       printf "\e]9;9;%s\e\\" "$PWD"
@@ -73,41 +75,24 @@ if [[ $(grep -s microsoft /proc/version) ]]; then
   export DISPLAY=$(ip route list default | awk '{print $3}'):3
 
   # Workaround X11-unix socket mounted as read-only
-  # Source: https://github.com/microsoft/WSL/issues/9303#issuecomment-1345615675
+  # https://github.com/microsoft/WSL/issues/9303#issuecomment-1345615675
   sudo mount -o remount,rw /tmp/.X11-unix
-
-  MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
 
   # Include Python user binaries
   export PATH=$PATH:~/.local/bin
 
-  export PATH=$PATH:/usr/local/go/bin
+  # Set MinIO data directory
+  MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
 
-  export VAGRANT_DEFAULT_PROVIDER=hyperv
-  export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+# macOS
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  export PATH="/Users/weimeng/go/bin:$PATH"
-
   # Workaround for duplicate command on tab completion
   # https://github.com/sindresorhus/pure/issues/300
   export LANG=en_US.UTF-8
   export LC_ALL=en_US.UTF-8
 
-  # For brew installed coreutils
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-  # For brew installed google-cloud-sdk
-  export CLOUDSDK_PYTHON="/usr/local/opt/python@3.8/libexec/bin/python"
-
-  GCLOUD_SDK_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-  if [ -f "$GCLOUD_SDK_PATH" ]; then . "$GCLOUD_SDK_PATH"; fi
-
-  GCLOUD_COMPLETION_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-  if [ -f "$GCLOUD_COMPLETION_PATH" ]; then . "$GCLOUD_COMPLETION_PATH"; fi
-
-  # For GitLab Development Kit
-  # export PATH="/usr/local/opt/postgresql/bin:$PATH"
-  export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:$PKG_CONFIG_PATH"
+# Linux
+# elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 # rails
