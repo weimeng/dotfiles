@@ -30,6 +30,12 @@ plugins+=(
   rbenv
 )
 
+# Aliases
+# https://github.com/ohmyzsh/ohmyzsh#skip-aliases
+zstyle ':omz:plugins:brew' aliases no
+zstyle ':omz:plugins:git' aliases no
+zstyle ':omz:plugins:rbenv' aliases no
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
