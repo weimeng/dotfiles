@@ -70,15 +70,17 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
+plugins=(git)
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Homebrew needs to be loaded before plugins for brew packages
+  plugins+=(brew)
+fi
+
+plugins+=(
   pyenv
   rbenv
 )
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  plugins+=(brew)
-fi
 
 source $ZSH/oh-my-zsh.sh
 
