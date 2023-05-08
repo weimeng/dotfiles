@@ -25,7 +25,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 plugins+=(
-  nodenv
   pyenv
   rbenv
 )
@@ -94,6 +93,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 # Linux
 # elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
+
+# Node.js
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # rails
 function berc () {
