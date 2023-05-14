@@ -4,27 +4,19 @@
 export ZSH=~/.oh-my-zsh
 
 # Theme settings
-ZSH_THEME="spaceship"
-
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_DOCKER_SHOW=false
-if [[ $(grep -s microsoft /proc/version) ]]; then
-  # http://blog.miguelalexcantu.com/2020/12/fixing-upower-warning-wslzshspaceship.html
-  SPACESHIP_BATTERY_SHOW=false
-fi
+ZSH_THEME=""
 
 # Library settings
 HIST_STAMPS="yyyy-mm-dd"
 
 # Plugins
-plugins=(git)
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Homebrew needs to be loaded before plugins for brew packages
   plugins+=(brew)
 fi
 
 plugins+=(
+  starship
   pyenv
   rbenv
 )
@@ -32,7 +24,6 @@ plugins+=(
 # Aliases
 # https://github.com/ohmyzsh/ohmyzsh#skip-aliases
 zstyle ':omz:plugins:brew' aliases no
-zstyle ':omz:plugins:git' aliases no
 zstyle ':omz:plugins:rbenv' aliases no
 
 source $ZSH/oh-my-zsh.sh
