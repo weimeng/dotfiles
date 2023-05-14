@@ -25,7 +25,7 @@ PowerShell on Windows:
 git clone --bare git@github.com:weimeng/dotfiles.git $HOME\.dotfiles
 
 # Dot source dotfiles PowerShell config
-Add-Content $PROFILE ". $HOME\.config\powershell\Microsoft.Powershell_profile.ps1"
+Add-Content $PROFILE ". $HOME\.config\powershell\Microsoft.PowerShell_profile.ps1"
 ```
 
 **Step 2: Restart terminal session**
