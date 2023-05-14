@@ -11,37 +11,28 @@ echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Cloning into new system
 
-## *nix
+**Step 1: Clone dotfiles repository**
+
+*nix:
 
 ```sh
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 git clone --bare git@github.com:weimeng/dotfiles.git $HOME/.dotfiles
-dotfiles checkout
-dotfiles config --local status.showUntrackedFiles no
 ```
 
-## Powershell
+PowerShell on Windows:
 
 ```powershell
-function Start-DotfilesGit
-{
-  param(
-    [string[]]
-    [Parameter(ValueFromRemainingArguments)]
-    $Command = ' ')
-
-  $ArgumentList = @("--git-dir=$HOME\.dotfiles\", "--work-tree=$HOME") + $Command
-
-  Start-Process -NoNewWindow -FilePath "C:\Program Files\Git\cmd\git.exe" -ArgumentList $ArgumentList
-}
-Set-Alias -Name dotfiles -Value Start-DotfilesGit
 git clone --bare git@github.com:weimeng/dotfiles.git $HOME\.dotfiles
-dotfiles checkout
-dotfiles config --local status.showUntrackedFiles no
+
+# Dot source dotfiles PowerShell config
+Add-Content $PROFILE ". $HOME\.config\powershell\Microsoft.Powershell_profile.ps1"
 ```
 
-Add Powershell functions and aliases for Windows:
+**Step 2: Restart terminal session**
 
-```powershell
-Add-Content $PROFILE ". $HOME\.config\powershell\Microsoft.Powershell_profile.ps1"
+**Step 3: Checkout and configure**
+
+```sh
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
 ```
