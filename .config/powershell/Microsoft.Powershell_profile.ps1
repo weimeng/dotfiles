@@ -1,3 +1,7 @@
+# Starship Prompt
+Invoke-Expression (&starship init powershell)
+
+# Dotfiles
 function Start-DotfilesGit
 {
   param(

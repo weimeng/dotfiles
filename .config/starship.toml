@@ -1,0 +1,8 @@
+format = '''$time$all'''
+
+[directory]
+format = 'in [$path]($style)[$read_only]($read_only_style) '
+
+[time]
+disabled = false
+format = '[$time]($style) '
