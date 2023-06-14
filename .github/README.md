@@ -25,6 +25,7 @@ PowerShell on Windows:
 git clone --bare git@github.com:weimeng/dotfiles.git $HOME\.dotfiles
 
 # Dot source dotfiles PowerShell config
+If (!(Test-Path $PROFILE)) { New-Item -Path $PROFILE -Force }
 Add-Content $PROFILE ". $HOME\.config\powershell\Microsoft.PowerShell_profile.ps1"
 ```
 
