@@ -74,6 +74,7 @@ if [[ $(grep -s microsoft /proc/version) ]]; then
   # Set MinIO data directory
   MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
 
+  alias "cd~"="cd /mnt/c/Users/weimeng"
 # macOS
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Workaround for duplicate command on tab completion
