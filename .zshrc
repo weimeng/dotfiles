@@ -86,10 +86,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 # elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
-# Node.js
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 # rails
 function berc () {
   if [ -f ./bin/rails ]; then
