@@ -30,8 +30,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -41,12 +39,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # OS-specific configuration
 
@@ -63,10 +55,8 @@ if [[ $(grep -s microsoft /proc/version) ]]; then
   # Include Python user binaries
   export PATH=$PATH:~/.local/bin
 
-  # Set MinIO data directory
-  MINIO_DATA_DIR="/mnt/c/Users/weimeng/Documents/Dev/minio"
-
   alias "cd~"="cd /mnt/c/Users/weimeng"
+
 # macOS
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Workaround for duplicate command on tab completion
