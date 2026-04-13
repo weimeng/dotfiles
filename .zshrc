@@ -52,6 +52,9 @@ if [[ $(grep -s microsoft /proc/version) ]]; then
     }
   }
 
+  # Advertise true colour support for Windows Terminal
+  export COLORTERM=truecolor
+
   # Include Python user binaries
   export PATH=$PATH:~/.local/bin
 
