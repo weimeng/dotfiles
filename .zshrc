@@ -17,8 +17,8 @@ fi
 
 plugins+=(
   starship
+  mise
   pyenv
-  rbenv
 )
 
 # Aliases
